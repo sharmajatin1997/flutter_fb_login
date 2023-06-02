@@ -3,10 +3,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
-
-
-
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -20,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("DBestech"),
+        title: const Text("DBeste"),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -34,7 +30,7 @@ class _HomePageState extends State<HomePage> {
               width: 200,
               fit: BoxFit.cover,
               imageUrl:_userObj["picture"]["data"]["url"],
-              errorWidget: (context, url, error) => Icon(Icons.error_outline),
+              errorWidget: (context, url, error) => const Icon(Icons.error_outline),
             ),
             // Image.network(_userObj["picture"]["data"]["url"]),
             Text(_userObj["name"]),
@@ -48,12 +44,12 @@ class _HomePageState extends State<HomePage> {
                     });
                   });
                 },
-                child: Text("Logout"))
+                child: const Text("Logout"))
           ],
         )
             : Center(
           child: ElevatedButton(
-            child: Text("Login with Facebook"),
+            child: const Text("Login with Facebook"),
             onPressed: () async {
               FacebookAuth.instance.login(
                   permissions: ["public_profile", "email"]).then((value) {
